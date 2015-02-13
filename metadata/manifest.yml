@@ -1,0 +1,68 @@
+---
+Name: springboot
+Cartridge-Short-Name: SPRNGBOOT
+Display-Name: Spring Boot 1.2
+Description: Spring Boot is an oppinionated take on building microservices
+Version: '0.10'
+Source-Url: git://github.com/chmanie/openshift-origin-cartridge-nodejs-custom.git
+Versions:
+- 'mvn'
+- 'gradle'
+License: MIT License
+License-Url: https://raw.github.com/joyent/node/v0.10/LICENSE
+Vendor: www.nodejs.org
+Website: http://www.nodejs.org/
+Cartridge-Version: 0.0.21
+Compatible-Versions:
+- 0.0.15
+- 0.0.16
+- 0.0.17
+- 0.0.19
+- 0.0.20
+Cartridge-Vendor: dowser
+Categories:
+- service
+- javascript
+- nodejs
+- web_framework
+Help-Topics:
+  Developer Center: https://www.openshift.com/developers
+Provides:
+- nodejs-0.10
+- nodejs
+Scaling:
+  Min: 1
+  Max: -1
+Publishes:
+  get-doc-root:
+    Type: FILESYSTEM:doc-root
+Subscribes:
+  set-env:
+    Type: ENV:*
+    Required: false
+  set-mysql-connection-info:
+    Type: NET_TCP:db:mysql
+    Required: false
+  set-postgres-connection-info:
+    Type: NET_TCP:db:postgres
+    Required: false
+Endpoints:
+- Private-IP-Name: IP
+  Private-Port-Name: PORT
+  Private-Port: 8080
+  Public-Port-Name: PROXY_PORT
+  Protocols:
+  - http
+  - ws
+  Options:
+    primary: true
+  Mappings:
+  - Frontend: ''
+    Backend: ''
+    Options:
+      websocket: true
+  - Frontend: /health
+    Backend: ''
+    Options:
+      health: true
+Install-Build-Required: false
