@@ -1,6 +1,6 @@
 ---
 Name: springboot
-Cartridge-Short-Name: SPRNGBOOTG
+Cartridge-Short-Name: SPRINGBOOT
 Display-Name: Spring Boot 1.2 Gradle Edition
 Description: Spring Boot is an oppinionated take on building microservices
 Version: '1.2'
