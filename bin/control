@@ -23,9 +23,9 @@ function start() {
     nohup java \
         -Xms384m -Xmx412m \
         -jar build/libs/*.jar \
-        --server.port=${OPENSHIFT_DIY_PORT} \
-        --server.address=${OPENSHIFT_DIY_IP} \
-        --spring.profiles.active=openshift &
+        -Dserver.port=${OPENSHIFT_DIY_PORT} \
+        -Dserver.address=${OPENSHIFT_DIY_IP} \
+        -Dspring.profiles.active=openshift &
 }
 
 function stop() {
