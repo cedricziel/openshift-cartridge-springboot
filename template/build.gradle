@@ -8,12 +8,12 @@ buildscript {
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
+    configurations {
+        compile.exclude module: "spring-boot-starter-tomcat"
+    }
 }
-
 apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'idea'
-apply plugin: 'spring-boot' 
+apply plugin: 'spring-boot'
 
 jar {
     baseName = 'demo'
@@ -28,18 +28,12 @@ repositories {
 
 
 dependencies {
+    compile("org.springframework.boot:spring-boot-starter-undertow")
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-actuator")
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
-eclipse {
-    classpath {
-         containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
-         containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
-    }
-}
-
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.12'
+    gradleVersion = '2.2.1'
 }
