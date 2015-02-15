@@ -27,7 +27,60 @@ function restart() {
     start
 }
 
+function pre-build() {
+
+    if [ ! -d ${OPENSHIFT_DATA_DIR}jdk1.8.0_20 ]
+        then
+            echo "Installing Java 8"
+            cd ${OPENSHIFT_DATA_DIR}
+            wget -nv http://www.java.net/download/jdk8u20/archive/b17/binaries/jdk-8u20-ea-bin-b17-linux-x64-04_jun_2014.tar.gz
+            tar xvf *.tar.gz
+            rm -f *.tar.gz
+    fi
+
+    if [ ! -d ${OPENSHIFT_DATA_DIR}apache-maven-3.2.3 ]
+        then
+            echo "Installing Maven 3.2.3"
+            cd ${OPENSHIFT_DATA_DIR}
+            wget -nv http://mirror.cc.columbia.edu/pub/software/apache/maven/maven-3/3.2.3/binaries/apache-maven-3.2.3-bin.tar.gz
+            tar xvf *.tar.gz
+            rm -f *.tar.gz
+    fi
+
+
+    if [ ! -d $OPENSHIFT_DATA_DIR/gradle-2.2.1 ]
+        then
+            echo "Installing Gradle 2.2.1"
+            cd $OPENSHIFT_DATA_DIR
+            wget https://services.gradle.org/distributions/gradle-2.2.1-bin.zip
+            unzip gradle-2.2.1-bin.zip
+            rm -f gradle-2.2.1-bin.zip
+    fi
+
+    if [ ! -d $OPENSHIFT_DATA_DIR/gradle ]
+        then
+            cd $OPENSHIFT_DATA_DIR
+            mkdir gradle
+    fi
+
+    if [ ! -d $OPENSHIFT_DATA_DIR/logs ]
+        then
+            cd $OPENSHIFT_DATA_DIR
+            mkdir logs
+    fi
+
+}
+
 function build() {
+
+    cd $OPENSHIFT_REPO_DIR
+    export GRADLE_USER_HOME=$OPENSHIFT_DATA_DIR/gradle
+    export GRADLE_HOME=$OPENSHIFT_DATA_DIR/gradle-2.2.1
+    export GRADLE_OPTS="-Xms384m -Xmx412m"
+    export JAVA_HOME=$OPENSHIFT_DATA_DIR/jdk1.8.0_20
+    export PATH=$JAVA_HOME/bin:$GRADLE_HOME/bin:$PATH
+
+    gradle bootRepackage
 }
 
 function post-deploy() {
@@ -58,6 +111,7 @@ case "$1" in
     restart|graceful)    restart     ;;
     graceful-stop|stop)  stop        ;;
     status)              status      ;;
+    pre-build)           pre-build   ;;
     build)               build       ;;
     post-deploy)         post-deploy ;;
     tidy)                tidy        ;;
