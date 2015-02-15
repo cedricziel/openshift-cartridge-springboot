@@ -1,4 +1,4 @@
 .idea
 *.iml
-versions/**/build
-versions/**/.gradle
+template/**/build
+template/**/.gradle
