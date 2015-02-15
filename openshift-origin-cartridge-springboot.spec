@@ -1,5 +1,3 @@
-%global cartridgedir %{_libexecdir}/openshift/cartridges/nodejs
-
 Summary:       Provides streamlined spring boot
 Name:          openshift-origin-cartridge-springboot
 Version: 1.30.1
@@ -13,19 +11,6 @@ Requires:      openshift-origin-node-util
 %if 0%{?fedora}%{?rhel} <= 6
 Requires:      %{scl}
 %endif
-Requires:      %{?scl:%scl_prefix}nodejs-node-static
-Requires:      nodejs
-Requires:      nodejs-async
-Requires:      nodejs-connect
-Requires:      nodejs-express
-Requires:      nodejs-mongodb
-Requires:      nodejs-mysql
-Requires:      nodejs-node-static
-Requires:      nodejs-pg
-Requires:      nodejs-supervisor
-Requires:      nodejs-options
-Provides:      openshift-origin-cartridge-nodejs-0.6 = 2.0.0
-Obsoletes:     openshift-origin-cartridge-nodejs-0.6 <= 1.99.9
 BuildArch:     noarch
 
 %description

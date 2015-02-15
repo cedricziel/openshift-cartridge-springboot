@@ -4,6 +4,11 @@ Install by using [this URL](https://raw.githubusercontent.com/cedricziel/openshi
 
 Documentation follows once stable
 
+```
+rhc app create bootservice \
+http://cartreflect-claytondev.rhcloud.com/reflect?github=cedricziel/openshift-cartridge-springboot
+```
+
 ## Goals
 
 * Template for Microservices with Spring Boot
