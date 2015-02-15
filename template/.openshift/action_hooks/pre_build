@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+set -x
 
 if [ ! -d ${OPENSHIFT_DATA_DIR}jdk1.8.0_20 ]
     then
