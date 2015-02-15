@@ -1,5 +1,11 @@
-# OpenShift NodeJS Cartridge
+# EXPERIMENTAL OpenShift Spring Boot
 
-Install by using [this URL](https://raw.githubusercontent.com/chmanie/openshift-origin-cartridge-nodejs-custom/master/metadata/manifest.yml) as custom cartridge definition
+Install by using [this URL](https://raw.githubusercontent.com/cedricziel/openshift-cartridge-springboot/master/metadata/manifest.yml) as custom cartridge definition
 
-This cartridge is documented in the [Cartridge Guide](http://openshift.github.io/documentation/oo_cartridge_guide.html#nodejs).
+Documentation follows once stable
+
+## Goals
+
+* Template for Microservices with Spring Boot
+* Gradle or Maven
+* Scalable (hence custom cartridge, not diy)
