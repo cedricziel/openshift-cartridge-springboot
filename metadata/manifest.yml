@@ -3,7 +3,7 @@ Name: springboot
 Cartridge-Short-Name: SPRNGBOOTG
 Display-Name: Spring Boot 1.2 Gradle Edition
 Description: Spring Boot is an oppinionated take on building microservices
-Version: '1.2-gradle'
+Version: '1.2'
 Source-Url: git@github.com:cedricziel/openshift-cartridge-springboot.git
 License: MIT License
 License-Url: https://raw.github.com/joyent/node/v0.10/LICENSE
