@@ -23,8 +23,8 @@ function start() {
     nohup java \
         -Xms384m -Xmx412m \
         -jar build/libs/*.jar \
-        -Dserver.port=${OPENSHIFT_DIY_PORT} \
-        -Dserver.address=${OPENSHIFT_DIY_IP} \
+        -Dserver.port=${OPENSHIFT_SPRINGBOOT_PORT} \
+        -Dserver.address=${OPENSHIFT_SPRINGBOOT_IP} \
         -Dspring.profiles.active=openshift &
 }
 
