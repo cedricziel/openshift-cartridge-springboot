@@ -10,16 +10,6 @@ if [ ! -d ${OPENSHIFT_DATA_DIR}jdk1.8.0_20 ]
         rm -f *.tar.gz
 fi
 
-if [ ! -d ${OPENSHIFT_DATA_DIR}apache-maven-3.2.3 ]
-    then
-        echo "Installing Maven 3.2.3"
-        cd ${OPENSHIFT_DATA_DIR}
-        wget -nv http://mirror.cc.columbia.edu/pub/software/apache/maven/maven-3/3.2.3/binaries/apache-maven-3.2.3-bin.tar.gz
-        tar xvf *.tar.gz
-        rm -f *.tar.gz
-fi
-
-
 if [ ! -d $OPENSHIFT_DATA_DIR/gradle-2.2.1 ]
     then
         echo "Installing Gradle 2.2.1"
