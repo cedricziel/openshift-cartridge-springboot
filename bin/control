@@ -84,9 +84,11 @@ function build() {
 }
 
 function post-deploy() {
+    echo "post-deploy"
 }
 
 function pre-repo-archive() {
+    echo "pre-repo-archive"
 }
 
 # Clean up any log files
