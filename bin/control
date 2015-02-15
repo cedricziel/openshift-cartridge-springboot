@@ -62,6 +62,17 @@ function tidy() {
   shopt -s dotglob
 }
 
+function is_cartridge_running() {
+    PID=$(ps -ef | grep java.*\.jar | grep -v grep | awk '{ print $2 }')
+
+    if [ -z "$PID" ]
+    then
+        return 0
+    else
+        return 1
+    fi
+}
+
 #
 #  main():
 #
