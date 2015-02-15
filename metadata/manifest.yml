@@ -5,11 +5,11 @@ Display-Name: Spring Boot 1.2 Gradle Edition
 Description: Spring Boot is an oppinionated take on building microservices
 Version: '1.2'
 Source-Url: https://github.com/cedricziel/openshift-cartridge-springboot.git
-License: MIT License
-License-Url: https://raw.github.com/joyent/node/v0.10/LICENSE
-Vendor: www.nodejs.org
-Website: http://www.nodejs.org/
-Cartridge-Version: 0.0.1
+License: Apache License 2.0
+License-Url: https://raw.githubusercontent.com/spring-projects/spring-boot/master/LICENSE.txt
+Vendor: spring.io
+Website: http://spring.io/
+Cartridge-Version: 0.0.2
 Cartridge-Vendor: cedricziel
 Categories:
 - service
