@@ -15,12 +15,17 @@ function status() {
 }  #  End of function  status.
 
 function start() {
-  echo "Starting Spring Boot cartridge"
-  cd $OPENSHIFT_REPO_DIR
-  nohup java -Xms384m -Xmx412m -jar build/libs/*.jar \
-  --server.port=${OPENSHIFT_DIY_PORT} \
-  --server.address=${OPENSHIFT_DIY_IP} \
-  --spring.profiles.active=openshift &
+    echo "Starting Spring Boot cartridge"
+    export JAVA_HOME=$OPENSHIFT_DATA_DIR/jdk1.8.0_20
+    export PATH=$JAVA_HOME/bin:$PATH
+
+    cd $OPENSHIFT_REPO_DIR
+    nohup java \
+        -Xms384m -Xmx412m \
+        -jar build/libs/*.jar \
+        --server.port=${OPENSHIFT_DIY_PORT} \
+        --server.address=${OPENSHIFT_DIY_IP} \
+        --spring.profiles.active=openshift &
 }
 
 function stop() {
@@ -67,9 +72,9 @@ function is_cartridge_running() {
 
     if [ -z "$PID" ]
     then
-        return 0
-    else
         return 1
+    else
+        return 0
     fi
 }
 
