@@ -14,3 +14,11 @@ http://cartreflect-claytondev.rhcloud.com/reflect?github=cedricziel/openshift-ca
 * Template for Microservices with Spring Boot
 * Gradle or Maven
 * Scalable (hence custom cartridge, not diy)
+
+## Cartridge Development
+
+Once a custom cartridge is deployed, you have to manually clear the broker cache to allow retrieval without version change.
+
+ ```
+ /usr/sbin/oo-admin-broker-cache -c --console
+```
